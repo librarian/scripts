@@ -14,3 +14,8 @@ $> c h
 And you will connect ssh user@host.name -p port
 
 (c) cronfy, librarian 2011
+
+find-bom:
+Script to find all files with UTF-8 BOM
+
+(c) sankuru.biz, cronfy
