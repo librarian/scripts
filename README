@@ -1,0 +1,16 @@
+Scripts description
+
+connect:
+Simple script to connect ssh servers
+
+To add server you should add string to SERVERS variable:
+
+host.name:user:port
+
+It is more comfortable to name it "c" to use it like:
+
+$> c h
+
+And you will connect ssh user@host.name -p port
+
+(c) cronfy, librarian 2011

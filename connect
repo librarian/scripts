@@ -1,0 +1,22 @@
+#!/bin/bash
+SERVERS="
+host.name:root:22
+"
+
+CONNECT="$1"
+
+[ -z "$CONNECT" ] && {
+    echo "Syntax: `basename $0` servername" >&2
+}
+
+SSH_USER=`echo -e "$SERVERS" | grep -m1 "^$CONNECT" | awk -F: '{print $2}'`
+SERVER=`echo -e "$SERVERS" | grep -m1 "^$CONNECT" | awk -F: '{print $1}'`
+PORT=`echo -e "$SERVERS" | grep -m1 "^$CONNECT" | awk -F: '{print $3}'`
+[ -z "$SERVER" ] && {
+    echo " ** Server not found." >&2
+    exit 1
+}
+echo "Login to: $SSH_USER@$SERVER -p $PORT"
+ssh $SSH_USER@$SERVER -p $PORT
+}
+
